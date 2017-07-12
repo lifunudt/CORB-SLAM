@@ -62,7 +62,7 @@ ros core
 ```
 rosrun corbslam_servcer PATH_TO_VOCABULARY/ORBvoc.txt PATH_TO_CONFIGURATION/KITTIX.yaml
 ```
-### 2.2.3 run multiple corbslam_client in different datasets
+#### 2.2.3 run multiple corbslam_client in different datasets
 
 1. run KITTI datasets
 
