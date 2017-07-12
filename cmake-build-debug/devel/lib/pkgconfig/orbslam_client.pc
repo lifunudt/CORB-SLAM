@@ -1,0 +1,8 @@
+prefix=/home/lifu/catkin_ws/src/cmake-build-debug/devel
+
+Name: orbslam_client
+Description: Description of orbslam_client
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/lifu/catkin_ws/src/cmake-build-debug/devel/lib 
+Requires: 

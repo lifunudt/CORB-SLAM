@@ -1,0 +1,5 @@
+string FNAME
+string LNAME
+int32 AGE
+---
+int32 ID

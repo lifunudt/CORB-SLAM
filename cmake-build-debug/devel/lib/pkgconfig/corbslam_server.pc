@@ -1,0 +1,8 @@
+prefix=/home/lifu/catkin_ws/src/cmake-build-debug/devel
+
+Name: corbslam_server
+Description: Description of corbslam_server
+Version: 0.0.0
+Cflags: -I/home/lifu/catkin_ws/src/cmake-build-debug/devel/include
+Libs: -L/home/lifu/catkin_ws/src/cmake-build-debug/devel/lib 
+Requires: message_runtime corbslam_client

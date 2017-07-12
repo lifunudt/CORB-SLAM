@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: corbslam_server
+Description: Description of corbslam_server
+Version: 0.0.0
+Cflags: -I/usr/local/include
+Libs: -L/usr/local/lib 
+Requires: message_runtime corbslam_client

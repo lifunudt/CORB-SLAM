@@ -1,0 +1,8 @@
+prefix=/home/lifu/catkin_ws/src/cmake-build-debug/devel
+
+Name: corbslam
+Description: Description of corbslam
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/lifu/catkin_ws/src/cmake-build-debug/devel/lib 
+Requires: 

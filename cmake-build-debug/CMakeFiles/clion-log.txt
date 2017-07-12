@@ -1,0 +1,49 @@
+/usr/bin/X11/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/lifu/catkin_ws/src
+-- Using CATKIN_DEVEL_PREFIX: /home/lifu/catkin_ws/src/cmake-build-debug/devel
+-- Using CMAKE_PREFIX_PATH: /home/lifu/catkin_ws/devel;/opt/ros/indigo
+-- This workspace overlays: /home/lifu/catkin_ws/devel;/opt/ros/indigo
+-- Using PYTHON_EXECUTABLE: /usr/bin/python
+-- Using Debian Python package layout
+-- Using empy: /usr/bin/empy
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /home/lifu/catkin_ws/src/cmake-build-debug/test_results
+-- Found gtest sources under '/usr/src/gtest': gtests will be built
+-- Using Python nosetests: /usr/bin/nosetests-2.7
+-- catkin 0.6.18
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 2 packages in topological order:
+-- ~~  - corbslam_client
+-- ~~  - corbslam_server
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'corbslam_client'
+-- ==> add_subdirectory(corbslam_client)
+Build type: Debug
+-- Using flag -std=c++11.
+-- Using these message generators: gencpp;genlisp;genpy
+-- Boost version: 1.54.0
+-- Found the following Boost libraries:
+--   serialization
+--   system
+--   filesystem
+-- +++ processing catkin package: 'corbslam_server'
+-- ==> add_subdirectory(corbslam_server)
+Build type: Debug
+-- Using flag -std=c++11.
+-- Using these message generators: gencpp;genlisp;genpy
+-- Boost version: 1.54.0
+-- Found the following Boost libraries:
+--   serialization
+--   system
+--   filesystem
+-- corbslam_server: 1 messages, 2 services
+-- /home/lifu/catkin_ws/src/corbslam_server
+-- ARGN: FILES;DB;pgsql;GENERATE_QUERY;GENERATE_SESSION
+-- ARGC: 6
+-- ARGV: corbslam_server_SOURCES;FILES;DB;pgsql;GENERATE_QUERY;GENERATE_SESSION
+-- ARGV0: corbslam_server_SOURCES
+FATAL_ERROR:no input files to odb_compile
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/lifu/catkin_ws/src/cmake-build-debug
