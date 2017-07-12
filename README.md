@@ -60,7 +60,7 @@ ros core
 ```
 #### 2.2.2 start corbslam_servcer
 ```
-rosrun corbslam_servcer PATH\_TO\_VOCABULARY/ORBvoc.txt PATH\_TO\_CONFIGURATION/KITTIX.yaml
+rosrun corbslam_servcer PATH_TO_VOCABULARY/ORBvoc.txt PATH_TO_CONFIGURATION/KITTIX.yaml
 ```
 ### 2.2.3 run multiple corbslam_client in different datasets
 
