@@ -17,9 +17,9 @@
 
 #include "ros/ros.h"
 
-#include "corbslam_server/corbslam_insert.h"
-#include "corbslam_server/corbslam_update.h"
-#include "corbslam_server/corbslam_message.h"
+#include "corbslam_client/corbslam_insert.h"
+#include "corbslam_client/corbslam_update.h"
+#include "corbslam_client/corbslam_message.h"
 #include "TransPose.h"
 
 
@@ -193,11 +193,11 @@ namespace ORB_SLAM2 {
         void updateKeyFramePosesToServer( std::set<LightKeyFrame> tUpdateKFs );
         void updateMapPointPosesToServer( std::set<LightMapPoint> tUpdateMPs );
 
-        void subNewInsertKeyFramesFromServer(  const corbslam_server::corbslam_message::ConstPtr& msg  );
-        void subNewInsertMapPointFromServer(  const corbslam_server::corbslam_message::ConstPtr& msg  );
+        void subNewInsertKeyFramesFromServer(  const corbslam_client::corbslam_message::ConstPtr& msg  );
+        void subNewInsertMapPointFromServer(  const corbslam_client::corbslam_message::ConstPtr& msg  );
 
-        void subUpdatedKeyFramesPose(  const corbslam_server::corbslam_message::ConstPtr& msg  );
-        void subUpdatedMapPointsPose(  const corbslam_server::corbslam_message::ConstPtr& msg  );
+        void subUpdatedKeyFramesPose(  const corbslam_client::corbslam_message::ConstPtr& msg  );
+        void subUpdatedMapPointsPose(  const corbslam_client::corbslam_message::ConstPtr& msg  );
 
 
     private:

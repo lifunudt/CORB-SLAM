@@ -9,9 +9,9 @@
 
 #include "KeyFrame.h"
 #include "ros/ros.h"
-#include "corbslam_server/corbslam_update.h"
-#include "corbslam_server/corbslam_insert.h"
-#include "corbslam_server/corbslam_message.h"
+#include "corbslam_client/corbslam_update.h"
+#include "corbslam_client/corbslam_insert.h"
+#include "corbslam_client/corbslam_message.h"
 #include "ServerMap.h"
 #include "TransPose.h"
 #include "ORBmatcher.h"
@@ -35,17 +35,17 @@ namespace CORBSLAM_SERVER{
 
         void runPubTopic();
 
-        bool insertKeyFrameToMap(corbslam_server::corbslam_insert::Request &req,
-                                 corbslam_server::corbslam_insert::Response &res);
+        bool insertKeyFrameToMap(corbslam_client::corbslam_insert::Request &req,
+                                 corbslam_client::corbslam_insert::Response &res);
 
-        bool insertMapPointToMap(corbslam_server::corbslam_insert::Request &req,
-                                 corbslam_server::corbslam_insert::Response &res);
+        bool insertMapPointToMap(corbslam_client::corbslam_insert::Request &req,
+                                 corbslam_client::corbslam_insert::Response &res);
 
-        bool updateKeyFrameToMap(corbslam_server::corbslam_update::Request &req,
-                                 corbslam_server::corbslam_update::Response &res);
+        bool updateKeyFrameToMap(corbslam_client::corbslam_update::Request &req,
+                                 corbslam_client::corbslam_update::Response &res);
 
-        bool updateMapPointToMap(corbslam_server::corbslam_update::Request &req,
-                                 corbslam_server::corbslam_update::Response &res);
+        bool updateMapPointToMap(corbslam_client::corbslam_update::Request &req,
+                                 corbslam_client::corbslam_update::Response &res);
 
         void fuseSubMapToMap();
 

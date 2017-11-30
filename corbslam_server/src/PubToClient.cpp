@@ -2,7 +2,7 @@
 // Created by lifu on 6/19/17.
 //
 
-#include <corbslam_server/corbslam_message.h>
+#include "corbslam_client/corbslam_message.h"
 #include "PubToClient.h"
 
 namespace CORBSLAM_SERVER{
@@ -14,16 +14,16 @@ namespace CORBSLAM_SERVER{
 
         ros::NodeHandle n;
 
-        insertKeyFramesPub = n.advertise<corbslam_server::corbslam_message>("insertKeyFramesFromServer", 1000);
-        insertMapPointsPub = n.advertise<corbslam_server::corbslam_message>("insertMapPointsFromServer", 1000);
-        updateKeyFramePosesPub = n.advertise<corbslam_server::corbslam_message>("updateKeyFramePosesFromServer", 1000);
-        updateMapPointPosesPub = n.advertise<corbslam_server::corbslam_message>("updateMapPointPosesFromServer", 1000);
+        insertKeyFramesPub = n.advertise<corbslam_client::corbslam_message>("insertKeyFramesFromServer", 1000);
+        insertMapPointsPub = n.advertise<corbslam_client::corbslam_message>("insertMapPointsFromServer", 1000);
+        updateKeyFramePosesPub = n.advertise<corbslam_client::corbslam_message>("updateKeyFramePosesFromServer", 1000);
+        updateMapPointPosesPub = n.advertise<corbslam_client::corbslam_message>("updateMapPointPosesFromServer", 1000);
 
     }
 
     void PubToClient::pubNewKFsToClients( std::set<LightKeyFrame> newKFs ) {
 
-        corbslam_server::corbslam_message msg;
+        corbslam_client::corbslam_message msg;
         std::vector< std::string > KFsData;
         KFsData.clear();
 
@@ -57,7 +57,7 @@ namespace CORBSLAM_SERVER{
 
     void PubToClient::pubNewMPsToClients( std::set<LightMapPoint> newMPs ) {
 
-        corbslam_server::corbslam_message msg;
+        corbslam_client::corbslam_message msg;
 
         std::vector< std::string > MPsData;
         MPsData.clear();
@@ -91,7 +91,7 @@ namespace CORBSLAM_SERVER{
 
     void PubToClient::pubUpdatedKFsToClients( std::set<LightKeyFrame> updatedKFs ) {
 
-        corbslam_server::corbslam_message msg;
+        corbslam_client::corbslam_message msg;
 
         std::vector< std::string > KFsData;
         KFsData.clear();
@@ -127,7 +127,7 @@ namespace CORBSLAM_SERVER{
 
     void PubToClient::pubUpdatedMPSToClients( std::set<LightMapPoint> updatedMPs ) {
 
-        corbslam_server::corbslam_message msg;
+        corbslam_client::corbslam_message msg;
 
         std::vector< std::string > MPsData;
         MPsData.clear();
