@@ -56,7 +56,7 @@ catkin_install
 
 #### 2.2.1 start ros core
 ```
-ros core
+roscore
 ```
 #### 2.2.2 start corbslam_servcer
 ```
@@ -80,6 +80,6 @@ rosrun corbslam_client_stereo_kitti corbslam_client_stereo_kitti Vocabulary/ORBv
 [2] Mur-Artal R, Tardos J D. ORB-SLAM2: an Open-Source SLAM System for Monocular, Stereo and RGB-D Cameras[J]. arXiv preprint arXiv:1610.06475, 2016.
 
 ## License
-M2SLAM is released under a [GPLv3 license](https://github.com/lifunudt/M2SLAM/blob/master/License-gpl.txt).
+CORB-SLAM is released under a [GPLv3 license](https://github.com/lifunudt/M2SLAM/blob/master/License-gpl.txt).
 
 For a closed-source version of M2SLAM for commercial purposes, please contact the authors.
