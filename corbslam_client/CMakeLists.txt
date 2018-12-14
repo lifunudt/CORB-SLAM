@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.3)
 #project(ORB_SLAM2)
 project(corbslam_client)
 
@@ -38,9 +38,10 @@ find_package(catkin REQUIRED COMPONENTS
         rospy
         std_msgs
         tf
+        cv_bridge
         )
 
-find_package(OpenCV 2.4.3 REQUIRED)
+find_package(OpenCV 3.3.0 REQUIRED)
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 
@@ -156,7 +157,7 @@ include_directories(
         ${Pangolin_INCLUDE_DIRS}
         ${Boost_INCLUDE_DIR}
         ${PROJECT_SOURCE_DIR}/Examples/RGB-D
-        /usr/local/include/pcl-1.8
+        /usr/local/include/pcl
 )
 
 ## Declare a C++ library
@@ -194,7 +195,9 @@ add_library(${PROJECT_NAME} SHARED
         include/SerializeObject.h
         include/DataDriver.h
         src/DataDriver.cc
-        include/TransPose.h src/TransPose.cpp)
+        include/TransPose.h src/TransPose.cpp
+        src/ros_mono.cc
+        )
 
 target_link_libraries(${PROJECT_NAME}
         ${OpenCV_LIBS}
@@ -216,16 +219,16 @@ target_link_libraries(${PROJECT_NAME}
 
 # Build examples
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/RGB-D)
-
-add_executable(corbslam_client_rgbd_tum
-        Examples/RGB-D/rgbd_tum.cc
-        Examples/RGB-D/ros_viewer.cpp)
-
-target_link_libraries(corbslam_client_rgbd_tum
-        ${catkin_LIBRARIES}
-        ${PROJECT_NAME}
-        )
+# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/RGB-D)
+# 
+# add_executable(corbslam_client_rgbd_tum
+#         Examples/RGB-D/rgbd_tum.cc
+#         Examples/RGB-D/ros_viewer.cpp)
+# 
+# target_link_libraries(corbslam_client_rgbd_tum
+#         ${catkin_LIBRARIES}
+#         ${PROJECT_NAME}
+#         )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Stereo)
 
@@ -247,6 +250,19 @@ add_executable(corbslam_client_mono_tum
         Examples/Monocular/mono_tum.cc)
 
 target_link_libraries(corbslam_client_mono_tum
+        ${PROJECT_NAME}
+        ${catkin_LIBRARIES}
+        )
+        
+        
+        
+        
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/)
+
+add_executable(ros_mono_corb
+        src/ros_mono.cc)
+
+target_link_libraries(ros_mono_corb
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         )

@@ -1,7 +1,5 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
-
-rosbuild_init()
+cmake_minimum_required(VERSION 2.8)
+project(corbslam_client_ros)
 
 IF(NOT ROS_BUILD_TYPE)
   SET(ROS_BUILD_TYPE Release)
@@ -30,7 +28,7 @@ endif()
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/../../../cmake_modules)
 
-find_package(OpenCV 2.4.3 REQUIRED)
+find_package(OpenCV 3.3.0 REQUIRED)
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 
@@ -51,16 +49,19 @@ ${PROJECT_SOURCE_DIR}/../../../lib/libORB_SLAM2.so
 )
 
 # Node for monocular camera
-rosbuild_add_executable(Mono
+add_executable(Mono
 src/ros_mono.cc
 )
+target_link_libraries(Mono
+        ${catkin_LIBRARIES}
+        ${PROJECT_NAME})
 
 target_link_libraries(Mono
 ${LIBS}
 )
 
 # Node for stereo camera
-rosbuild_add_executable(Stereo
+add_executable(Stereo
 src/ros_stereo.cc
 )
 
@@ -69,7 +70,7 @@ ${LIBS}
 )
 
 # Node for RGB-D camera
-rosbuild_add_executable(RGBD
+add_executable(RGBD
 src/ros_rgbd.cc
 )
 

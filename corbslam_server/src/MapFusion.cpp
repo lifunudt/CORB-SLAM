@@ -491,7 +491,7 @@ namespace CORBSLAM_SERVER{
 
             cv::Mat oldTwc = tKF->GetPoseInverse();
             cv::Mat oldTcw = tKF->GetPose();
-            cv::Mat newTcw = cv::Mat::eye(4,4, newTcw.type());
+            cv::Mat newTcw = cv::Mat::eye(4,4,oldTcw.type());
 
             candidateKFs.clear();
             currentKF = tKF;
