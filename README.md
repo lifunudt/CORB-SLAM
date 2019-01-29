@@ -37,7 +37,7 @@ Our CORB-SLAM system is build on the foundation of [ORB_SLAM2(https://github.com
 We use boost library to serialize and deserialize the data.
 We can install boost library using the following instruction in terminal.
 ```bash
-sudo apt-get instal libboost-dev
+sudo apt-get install libboost-dev
 ```
 
 

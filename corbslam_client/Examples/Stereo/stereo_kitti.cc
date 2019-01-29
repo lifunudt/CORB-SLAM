@@ -38,25 +38,36 @@ void LoadImages(const string &strPathToSequence, vector<string> &vstrImageLeft,
 
 int main(int argc, char **argv)
 {
+    
+    cout << argc << endl;
     if(argc != 5)
     {
         cerr << endl << "Usage: ./stereo_kitti path_to_vocabulary path_to_settings path_to_sequence" << endl;
         return 1;
     }
-
+    
     ros::init(argc, argv, "corbslam_client_"+string(argv[4]) );
-
+    cout << argc << endl;
     // Retrieve paths to images
     vector<string> vstrImageLeft;
     vector<string> vstrImageRight;
     vector<double> vTimestamps;
     LoadImages(string(argv[3]), vstrImageLeft, vstrImageRight, vTimestamps);
-
+    cout << "2" << endl;
     const int nImages = vstrImageLeft.size();
-
+    
+    cout << nImages << endl;
+    
+    cout << argv[0] << endl;
+    cout << argv[1] << endl;
+    cout << argv[2] << endl;
+    cout << argv[3] << endl;
+    cout << argv[4] << endl;
+    
     // Create SLAM system. It initializes all system threads and gets ready to process frames.
     ORB_SLAM2::System SLAM(argv[1],argv[2],ORB_SLAM2::System::STEREO,true, boost::lexical_cast<int>(argv[4]) );
-
+    
+    
     // Vector for tracking time statistics
     vector<float> vTimesTrack;
     vTimesTrack.resize(nImages);
@@ -77,6 +88,10 @@ int main(int argc, char **argv)
         // Read left and right images from file
         imLeft = cv::imread(vstrImageLeft[ni],CV_LOAD_IMAGE_UNCHANGED);
         imRight = cv::imread(vstrImageRight[ni],CV_LOAD_IMAGE_UNCHANGED);
+
+//        imLeft = cv::imread(vstrImageLeft[ni],1);
+//        imRight = cv::imread(vstrImageRight[ni],1);
+
         double tframe = vTimestamps[ni];
 
         if(imLeft.empty())
@@ -143,12 +158,16 @@ void LoadImages(const string &strPathToSequence, vector<string> &vstrImageLeft,
                 vector<string> &vstrImageRight, vector<double> &vTimestamps)
 {
     ifstream fTimes;
-    string strPathTimeFile = strPathToSequence + "/times.txt";
+    cout << strPathToSequence << endl;
+    string strPathTimeFile = strPathToSequence + "/image_00/timestamps.txt";
+    cout << strPathTimeFile << endl;
     fTimes.open(strPathTimeFile.c_str());
+    //cout << "1" << endl;
     while(!fTimes.eof())
     {
         string s;
         getline(fTimes,s);
+        //cout << s << endl;
         if(!s.empty())
         {
             stringstream ss;
@@ -156,11 +175,14 @@ void LoadImages(const string &strPathToSequence, vector<string> &vstrImageLeft,
             double t;
             ss >> t;
             vTimestamps.push_back(t);
+            
         }
     }
-
-    string strPrefixLeft = strPathToSequence + "/image_0/";
-    string strPrefixRight = strPathToSequence + "/image_1/";
+    
+    cout << strPathToSequence << endl;
+    
+    string strPrefixLeft = strPathToSequence + "/image_02/data/";
+    string strPrefixRight = strPathToSequence + "/image_03/data/";
 
     const int nTimes = vTimestamps.size();
     vstrImageLeft.resize(nTimes);
@@ -169,8 +191,12 @@ void LoadImages(const string &strPathToSequence, vector<string> &vstrImageLeft,
     for(int i=0; i<nTimes; i++)
     {
         stringstream ss;
-        ss << setfill('0') << setw(6) << i;
+        ss << setfill('0') << setw(10) << i;
+        
+        cout << ss.str() << endl;
         vstrImageLeft[i] = strPrefixLeft + ss.str() + ".png";
         vstrImageRight[i] = strPrefixRight + ss.str() + ".png";
+        
+        cout << vstrImageLeft[i] << endl;
     }
 }
